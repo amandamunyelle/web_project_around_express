@@ -1,0 +1,35 @@
+{
+  "name": "web_project_around_express",
+  "version": "1.0.0",
+  "description": "Servidor Express para o projeto EUA Afora",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "npx eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amandamunyelle/web_project_around_express.git"
+  },
+  "keywords": [
+    "express",
+    "api",
+    "backend"
+  ],
+  "author": "Amanda Munyelle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amandamunyelle/web_project_around_express/issues"
+  },
+  "homepage": "https://github.com/amandamunyelle/web_project_around_express#readme",
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.32.0",
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
