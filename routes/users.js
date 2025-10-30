@@ -1,40 +1,11 @@
 const express = require("express");
-const path = require("path");
-const fs = require("fs");
-
 const router = express.Router();
+const usersController = require("../controllers/users");
 
-const usersPath = path.join(__dirname, "../data/users.json");
-
-// GET todos os usuários
-router.get("/", (req, res) => {
-  fs.readFile(usersPath, (err, data) => {
-    if (err) {
-      res.status(500).send({ message: "Erro ao ler o arquivo de usuários" });
-      return;
-    }
-    const users = JSON.parse(data);
-    res.send(users);
-  });
-});
-
-// GET usuário por ID
-router.get("/:id", (req, res) => {
-  fs.readFile(usersPath, (err, data) => {
-    if (err) {
-      res.status(500).send({ message: "Erro ao ler o arquivo de usuários" });
-      return;
-    }
-    const users = JSON.parse(data);
-    const user = users.find((item) => item._id === req.params.id);
-
-    if (!user) {
-      res.status(404).send({ message: "ID do usuário não encontrado" });
-      return;
-    }
-
-    res.send(user);
-  });
-});
+router.get("/", usersController.getUsers);
+router.get("/:userId", usersController.getUserById);
+router.post("/", usersController.createUser);
+router.patch("/me", usersController.updateProfile);
+router.patch("/me/avatar", usersController.updateAvatar);
 
 module.exports = router;
